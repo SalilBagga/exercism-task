@@ -10,7 +10,7 @@ import { ReactComponent as ArrowDown } from '../../assets/ArrowDown.svg';
 
 export default function Filters() {
   return (
-    <div className="h-25 w-full flex justify-between items-center">
+    <div className="h-25 w-full   flex justify-between items-center">
       <div className=" flex items-center ml-5">
         <div className="flex items-center cursor-pointer">
           <AllTracks />

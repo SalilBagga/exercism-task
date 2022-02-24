@@ -435,7 +435,7 @@ export default function TableComponent({ testimonials }) {
   //   },
   // };
   return (
-    <div className="py-4 ">
+    <div>
       <table className="table-fixed w-full ">
         <thead>
           <tr>

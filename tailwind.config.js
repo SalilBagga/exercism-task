@@ -36,7 +36,9 @@ module.exports = {
         'ex-blue': '#130B43',
         'ex-rowhover': '#F4F7FD',
         'ex-trackhover': '#F0F3F9',
+        notification: '#D85050',
         searchtext: '#5C5589',
+        badge: '#130B43',
       },
       spacing: {
         7.5: '1.875rem', // 30px
