@@ -6,7 +6,7 @@ import { ReactComponent as AllTracks } from '../../assets/AllTrack.svg';
 //componenets
 import Tracks from './Tracks';
 
-export default function DropDown() {
+export default function DropDown({ setDropDown, dropDown }) {
   const [first, setfirst] = useState('alltracks');
 
   const tacks = {
@@ -1750,31 +1750,34 @@ export default function DropDown() {
   }, [first]);
 
   return (
-    <div className=" rounded-lg drop-shadow-4xl w-[23.5rem] h-[22.75rem] section  bg-white overflow-y-auto overflow-x-hidden">
-      <form>
-        <div htmlFor="alltracks" className="flex my-2  items-center ">
-          <input
-            type="radio"
-            name="tracks"
-            id="alltracks"
-            className="tracks ml-[1.5rem] absolute  z-10"
-            onChange={() => setfirst('alltracks')}
-            defaultChecked
-          />
-          <div className="mx-auto pl-[1.8rem] flex w-[22.5rem] h-[3.625rem] items-center justify-between">
-            <div className="flex items-center ">
-              <AllTracks className="ml-4 " />
-              <span className="ml-4">All</span>
+    <div className="absolute">
+      <div className="absolute inset-0" onClick={() => setDropDown(false)}></div>
+      <div className="z-10 rounded-lg drop-shadow-4xl w-[23.5rem] h-[22.75rem] section  bg-white overflow-y-auto overflow-x-hidden">
+        <form>
+          <div htmlFor="alltracks" className="flex my-2  items-center ">
+            <input
+              type="radio"
+              name="tracks"
+              id="alltracks"
+              className="tracks ml-[1.5rem] absolute  z-10"
+              onChange={() => setfirst('alltracks')}
+              defaultChecked
+            />
+            <div className="mx-auto pl-[1.8rem] flex w-[22.5rem] h-[3.625rem] items-center justify-between">
+              <div className="flex items-center ">
+                <AllTracks className="ml-4 " />
+                <span className="ml-4">All</span>
+              </div>
+              <h1 className=" px-4 py-2 border-1 rounded-full mr-4">9</h1>
             </div>
-            <h1 className=" px-4 py-2 border-1 rounded-full mr-4">9</h1>
           </div>
-        </div>
 
-        {tacks &&
-          tacks.tracks.map((data, index) => (
-            <Tracks key={index} setfirst={setfirst} id={index} data={data} />
-          ))}
-      </form>
+          {tacks &&
+            tacks.tracks.map((data, index) => (
+              <Tracks key={index} setfirst={setfirst} id={index} data={data} />
+            ))}
+        </form>
+      </div>
     </div>
   );
 }

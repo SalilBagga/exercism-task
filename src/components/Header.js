@@ -40,23 +40,23 @@ export default function Header() {
           </li>
         </ul>
         <ul className="flex items-center mr-4">
-          <li className="relative mr-10 ">
+          <li className="relative mr-8 ">
             <Happy />
             <span className="bg-notification w-[10px] h-[10px] rounded-full text-white absolute -top-1   right-0 py-[1px] px-[3px] "></span>
           </li>
-          <li className="relative mr-10">
+          <li className="relative mr-8">
             <Hexagon />
             <span className="bg-notification w-[10px] h-[10px] rounded-full text-white absolute -top-1   right-0 py-[1px] px-[3px] "></span>
           </li>
-          <li className=" mr-10  ">
+          <li className=" mr-8  ">
             <div className="py-2 px-2 relative rounded-md shadow-lg">
               <Bell />
-              <span className="bg-notification   rounded-full text-white absolute -top-3   -right-4 py-[1px] px-[9px] ">
+              <span className="bg-notification   rounded-full text-white absolute -top-1  -right-3 py-[1px] px-[7px] text-sm">
                 2
               </span>
             </div>
           </li>
-          <li className=" mr-10">
+          <li className=" mr-8">
             <div className="rounded-[100px] mx-auto bg-gradient-to-b p-[4px] from-[#CC01FF] via-[#3B82F6] to-[#3301FF]">
               <div className="px-4 leading-[200%] items-center relative   rounded-[100px] bg-badge flex text-white">
                 <Badge />
@@ -65,7 +65,7 @@ export default function Header() {
               </div>
             </div>
           </li>
-          <li className=" mr-10">
+          <li className=" mr-8">
             <img src={ProfileImg} alt="profile-img" />
           </li>
           <li className=" mr-4">
@@ -75,9 +75,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
-{
-  /* <span className="bg-notification   rounded-full text-white absolute -top-1   right-0 py-[1px] px-[10px] ">
-              1
-            </span> */
 }
