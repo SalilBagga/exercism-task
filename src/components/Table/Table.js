@@ -3,7 +3,7 @@ import React from 'react';
 //componenets
 import Filters from '../Filter/Filters';
 import TableComponent from './TableComponent';
-import Pagination from './Pagination';
+import Pagination from '../Pagination/Pagination';
 
 export default function Table() {
   const object = {
@@ -434,10 +434,12 @@ export default function Table() {
     },
   };
   return (
-    <div className="max-w-[98%] max-h-[90%] border-2 mx-auto mt-6 rounded-lg   ">
-      <Filters />
-      <TableComponent testimonials={object.testimonials.results} />
-      <Pagination />
+    <div className="max-w-[95%] mb-5 max-h-[90%] border-2 mx-auto mt-6 rounded-lg  shadow-xl">
+      <div className="shadow-3xl">
+        <Filters />
+        <TableComponent testimonials={object.testimonials.results} />
+        <Pagination />
+      </div>
     </div>
   );
 }

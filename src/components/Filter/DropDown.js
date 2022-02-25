@@ -1750,8 +1750,8 @@ export default function DropDown({ setDropDown, dropDown }) {
   }, [first]);
 
   return (
-    <div className="absolute">
-      <div className="absolute inset-0" onClick={() => setDropDown(false)}></div>
+    <div className="absolute" onClick={() => setDropDown(false)}>
+      <div className="absolute inset-0" onClick={(e) => e.stopPropagation()}></div>
       <div className="z-10 rounded-lg drop-shadow-4xl w-[23.5rem] h-[22.75rem] section  bg-white overflow-y-auto overflow-x-hidden">
         <form>
           <div htmlFor="alltracks" className="flex my-2  items-center ">
