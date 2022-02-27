@@ -1,8 +1,5 @@
 import React from 'react';
 
-//svg
-// import { ReactComponent as Arrow } from '../../assets/Arrow.svg';
-
 //componenets
 import TableRow from './TableRow';
 
