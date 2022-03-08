@@ -14,11 +14,10 @@ export default function Filters() {
   const [dropDown, setDropDown] = useState(false);
 
   const [tacks, setTacks] = useState(null);
-  const { tracks, isPending, error } = useFetchTracks();
+  const { tracks } = useFetchTracks();
   useEffect(() => {
     if (tracks) {
       setTacks(tracks);
-      console.log('here', tracks);
     }
   }, [tracks]);
 

@@ -30,7 +30,6 @@ export const useFetch = () => {
       let track = '&track=' + context.selectedTrack;
       finalurl = finalurl + track;
     }
-    console.log(finalurl, isPending, error);
 
     setError(null);
     try {
@@ -44,7 +43,6 @@ export const useFetch = () => {
 
       setTimeout(() => {
         setData(data.testimonials);
-        console.log(data);
         setError(null);
         setIsPending(false);
       }, 1000);

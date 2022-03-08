@@ -18,7 +18,6 @@ export const useFetchTracks = () => {
           throw new Error(res.statusText);
         }
         const data = await res.json();
-        console.log(data);
 
         setTracks(data);
 

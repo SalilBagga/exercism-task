@@ -5,7 +5,7 @@ import Filters from '../Filter/Filters';
 import TableComponent from './TableComponent';
 import Pagination from '../Pagination/Pagination';
 import Loading from '../Loading';
-
+import EmptyData from '../EmptyData';
 //fetch data
 import { useFetch } from '../../hooks/useFetch';
 import { FilterContext } from '../../context/FilterContext';
@@ -14,11 +14,9 @@ export default function Table() {
   const { data, isPending, error } = useFetch();
   useEffect(() => {
     if (data) {
-      console.log(data);
-
       context.setLastPageNo(data.pagination.total_pages);
     }
-  }, [data]);
+  }, [data, context]);
 
   return (
     <div className="max-w-[95%] mb-5 max-h-[90%] border-2 mx-auto mt-6 rounded-lg  shadow-xl">
@@ -28,6 +26,7 @@ export default function Table() {
           {isPending && <Loading />}
           <div className="min-h-[100vh]">
             {data && <TableComponent testimonials={data.results} />}
+            {error && <EmptyData msg={error} />}
           </div>
         </div>
         <Pagination />

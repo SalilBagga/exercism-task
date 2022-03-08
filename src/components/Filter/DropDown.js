@@ -13,8 +13,7 @@ function DropDown({ setDropDown, tacks }) {
   const context = useContext(FilterContext);
 
   return (
-    <div className="absolute" onClick={() => setDropDown(false)}>
-      <div className="absolute inset-0" onClick={(e) => e.stopPropagation()}></div>
+    <div className="absolute">
       <div className="z-10 rounded-lg drop-shadow-4xl w-[23.5rem] h-[22.75rem] section  bg-white overflow-y-auto overflow-x-hidden">
         <form>
           <label htmlFor="alltracks" className="flex my-2  items-center cursor-pointer">
@@ -25,8 +24,8 @@ function DropDown({ setDropDown, tacks }) {
               className="tracks ml-[1.5rem] absolute  z-10"
               checked={context.selectedTrack === null}
               onChange={() => {
-                console.log(null);
                 context.setSelecTrack(null);
+                setDropDown(false);
               }}
             />
             <div className="mx-auto pl-[1.8rem] flex w-[22.5rem] h-[3.625rem] items-center justify-between">
@@ -34,7 +33,6 @@ function DropDown({ setDropDown, tacks }) {
                 <AllTracks className="ml-4 " />
                 <span className="ml-4">All</span>
               </div>
-              {/* <h1 className=" px-2 py-1 border-1 rounded-[100px] mr-4">9</h1> */}
             </div>
           </label>
 
@@ -48,9 +46,9 @@ function DropDown({ setDropDown, tacks }) {
                     setTrackList={context.setSelecTrack}
                     trackList={context.selectedTrack}
                     id={index}
-                    availableTracks={context.availableTracks}
                     trackCounts={context.trackCounts}
                     data={data}
+                    setDropDown={setDropDown}
                   />
                 )
             )}

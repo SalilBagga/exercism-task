@@ -26,7 +26,7 @@ export default function TableRow({ logo, avatar, name, topic, content, createdAt
         </div>
       </td>
 
-      <td className="">
+      <td>
         <div>
           <h4 className=" flex items-center justify-end mr-4">
             <Moment fromNow>{createdAt.replace('Z', '')}</Moment>

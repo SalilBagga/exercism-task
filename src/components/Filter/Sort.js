@@ -11,7 +11,6 @@ export default function Sort() {
         className="py-2 pl-3   w-full h-12 bg-ex-trackhover ring-1 ring-slate-900/10 text-searchtext rounded-md"
         onChange={(e) => {
           context.setSortValue(e.target.value);
-          console.log(e.target.value);
         }}
       >
         <option value="" defaultChecked>

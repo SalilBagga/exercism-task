@@ -5,7 +5,6 @@ import TableRow from './TableRow';
 import EmptyData from '../EmptyData';
 
 export default function TableComponent({ testimonials }) {
-  console.log('testimonial length', testimonials.length);
   return (
     <div>
       {testimonials.length > 0 ? (
@@ -33,7 +32,7 @@ export default function TableComponent({ testimonials }) {
           </tbody>
         </table>
       ) : (
-        <EmptyData />
+        <EmptyData msg="No Testimonials found" />
       )}
     </div>
   );

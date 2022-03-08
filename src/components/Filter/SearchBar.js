@@ -8,12 +8,11 @@ export default function SearchBar() {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      console.log(search);
       context.setSearchTerm(search.trim());
     }, 1000);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [search]);
+  }, [search, context]);
 
   return (
     <div className="relative rounded-lg shadow-sm w-searchbar ml-10">

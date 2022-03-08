@@ -1,13 +1,6 @@
 import React from 'react';
 
-export default function Tracks({
-  data,
-  id,
-  setTrackList,
-  trackList,
-  availableTracks,
-  trackCounts,
-}) {
+export default function Tracks({ data, id, setTrackList, trackList, trackCounts, setDropDown }) {
   return (
     <label htmlFor={id} className="flex my-2  items-center  cursor-pointer ">
       <input
@@ -18,6 +11,7 @@ export default function Tracks({
         checked={trackList === data.slug}
         onChange={() => {
           setTrackList(data.slug);
+          setDropDown(false);
         }}
         value={data.slug}
       />
