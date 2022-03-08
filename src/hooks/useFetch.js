@@ -55,7 +55,7 @@ export const useFetch = () => {
       }
     };
     fetchdata();
-  }, [context]);
+  }, [context.pageNo, context.searchTerm, context.sortValue, context.selectedTrack, context]);
 
   return { data, isPending, error };
 };
