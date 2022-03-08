@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 //components
 import Header from '../components/Header';
 import Table from '../components/Table/Table';
 import Testimoni from '../components/Testimoni';
 
-//fetch data
-import { useFetch } from '../hooks/useFetch';
 export default function Testimonial() {
   return (
     <div>
