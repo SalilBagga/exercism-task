@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //components
 import DropDown from './DropDown';
@@ -8,8 +8,20 @@ import Sort from './Sort';
 import { ReactComponent as AllTracks } from '../../assets/AllTrack.svg';
 import { ReactComponent as ArrowDown } from '../../assets/ArrowDown.svg';
 
+import { useFetchTracks } from '../../hooks/useFetchTracks';
+
 export default function Filters() {
   const [dropDown, setDropDown] = useState(false);
+
+  const [tacks, setTacks] = useState(null);
+  const { tracks, isPending, error } = useFetchTracks();
+  useEffect(() => {
+    if (tracks) {
+      setTacks(tracks);
+      console.log('here', tracks);
+    }
+  }, [tracks]);
+
   return (
     <div className="h-25 w-full   flex justify-between items-center">
       <div className=" flex items-center ml-5">
@@ -18,9 +30,8 @@ export default function Filters() {
           <ArrowDown className="ml-2" />
         </div>
         <div className="z-10">
-          {dropDown && <DropDown dropDown={dropDown} setDropDown={setDropDown} />}
+          {dropDown && <DropDown setDropDown={setDropDown} dropDown={dropDown} tacks={tacks} />}
         </div>
-
         <SearchBar />
       </div>
       <div className="mr-4">

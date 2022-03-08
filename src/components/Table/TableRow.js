@@ -21,7 +21,7 @@ export default function TableRow({ logo, avatar, name, topic, content, createdAt
       <td>
         <div className="text-left">
           <h4>
-            {content && content.length > 55 ? content.substring(0, 55).concat('...') : content}
+            {content && content.length > 50 ? content.substring(0, 50).concat('...') : content}
           </h4>
         </div>
       </td>

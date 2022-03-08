@@ -5,7 +5,7 @@ import Testimonial from './pages/Testimonial';
 
 function App() {
   return (
-    <div className="text-ex-blue text-center cursor-default">
+    <div className="text-ex-blue text-center cursor-default font-exercism">
       <Testimonial />
     </div>
   );
