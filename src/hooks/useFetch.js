@@ -31,8 +31,9 @@ export const useFetch = () => {
       if (context.selectedTrack) {
         let track = '&track=' + context.selectedTrack;
         finalurl = finalurl + track;
+        console.log(finalurl);
       }
-
+      console.log('fghj');
       setError(null);
       try {
         const res = await fetch(finalurl);
@@ -42,12 +43,10 @@ export const useFetch = () => {
         const data = await res.json();
         context.setAvailableTracks(data.testimonials.tracks);
         context.setTrackCounts(data.testimonials.track_counts);
-
-        setTimeout(() => {
-          setData(data.testimonials);
-          setError(null);
-          setIsPending(false);
-        }, 1000);
+        setData(data.testimonials);
+        setError(null);
+        setIsPending(false);
+        // setTimeout(() => {}, 500);
       } catch (err) {
         setError(err.message);
         setData(null);
@@ -55,7 +54,7 @@ export const useFetch = () => {
       }
     };
     fetchdata();
-  }, [context.pageNo, context.searchTerm, context.sortValue, context.selectedTrack, context]);
+  }, [context.pageNo, context.searchTerm, context.sortValue, context.selectedTrack]);
 
   return { data, isPending, error };
 };

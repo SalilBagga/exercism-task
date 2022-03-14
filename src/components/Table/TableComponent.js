@@ -4,7 +4,7 @@ import React from 'react';
 import TableRow from './TableRow';
 import EmptyData from '../EmptyData';
 
-export default function TableComponent({ testimonials }) {
+function TableComponent({ testimonials }) {
   return (
     <div>
       {testimonials.length > 0 ? (
@@ -37,3 +37,4 @@ export default function TableComponent({ testimonials }) {
     </div>
   );
 }
+export default React.memo(TableComponent);

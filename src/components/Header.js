@@ -49,7 +49,7 @@ function Header() {
             <span className="bg-notification w-[10px] h-[10px] rounded-full text-white absolute -top-1   right-0 py-[1px] px-[3px] "></span>
           </li>
           <li className=" mr-8   cursor-pointer">
-            <div className="py-2 px-2 relative rounded-md shadow-lg">
+            <div className="py-2 px-2 relative rounded-md drop-shadow-xl bg-[#fff5e5]">
               <Bell />
               <span className="bg-notification   rounded-full text-white absolute -top-1  -right-3 py-[1px] px-[7px] text-sm">
                 2

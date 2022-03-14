@@ -20,6 +20,7 @@ export default function Filters() {
       setTacks(tracks);
     }
   }, [tracks]);
+  console.log('Filters.js rendering');
 
   return (
     <div className="h-25 w-full   flex justify-between items-center">
