@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import DropDown from './DropDown';
 import SearchBar from './SearchBar';
 import Sort from './Sort';
+
 //svg
 import { ReactComponent as AllTracks } from '../../assets/AllTrack.svg';
 import { ReactComponent as ArrowDown } from '../../assets/ArrowDown.svg';
@@ -20,7 +21,6 @@ export default function Filters() {
       setTacks(tracks);
     }
   }, [tracks]);
-  console.log('Filters.js rendering');
 
   return (
     <div className="h-25 w-full   flex justify-between items-center">

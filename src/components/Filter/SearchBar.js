@@ -1,17 +1,25 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { ReactComponent as SearchIcon } from '../../assets/SearchIcon.svg';
 
 import { FilterContext } from '../../context/FilterContext';
-export default function SearchBar() {
+
+function SearchBar() {
   const context = useContext(FilterContext);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      context.setSearchTerm(search.trim());
-    }, 1000);
+  const initialRender = useRef(false);
 
-    return () => clearTimeout(delayDebounceFn);
+  useEffect(() => {
+    if (initialRender.current) {
+      console.log('this is rendering second time');
+      const delayDebounceFn = setTimeout(() => {
+        context.setSearchTerm(search.trim());
+      }, 1000);
+      return () => clearTimeout(delayDebounceFn);
+    } else {
+      initialRender.current = true;
+      console.log('this rendering first time');
+    }
   }, [search, context]);
 
   return (
@@ -28,3 +36,4 @@ export default function SearchBar() {
     </div>
   );
 }
+export default React.memo(SearchBar);

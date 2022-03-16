@@ -18,7 +18,7 @@ export default function Table() {
       context.setLastPageNo(data.pagination.total_pages);
     }
   }, [data, context]);
-  console.log('Table.js rendering');
+
   return (
     <div className="max-w-[95%] mb-5 max-h-[90%] border-2 mx-auto mt-6 rounded-lg  shadow-xl">
       <div className="shadow-3xl">
