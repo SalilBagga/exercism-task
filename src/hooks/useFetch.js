@@ -2,7 +2,11 @@ import { useState, useEffect, useContext } from 'react';
 
 import { FilterContext } from '../context/FilterContext';
 export const useFetch = () => {
-  const context = useContext(FilterContext);
+  const  {pageNo,
+    searchTerm,
+    sortValue,
+    selectedTrack,setAvailableTracks,
+    setTrackCounts} = useContext(FilterContext);
 
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
@@ -13,26 +17,28 @@ export const useFetch = () => {
       let finalurl = '';
       setIsPending(true);
       let baseurl = 'https://exercism.org/api/v2/hiring/testimonials';
-      if (context.pageNo === 1) {
+
+      if (pageNo === 1) {
         let page = '?page=1';
         finalurl = baseurl + page;
       } else {
-        let page = '?page=' + context.pageNo;
+        let page = '?page=' + pageNo;
         finalurl = baseurl + page;
       }
-      if (context.searchTerm) {
-        let search = '&exercise=' + context.searchTerm;
+      if (searchTerm) {
+        let search = '&exercise=' + searchTerm;
         finalurl = finalurl + search;
       }
-      if (context.sortValue) {
-        let sort = '&order=' + context.sortValue;
+      if (sortValue) {
+        let sort = '&order=' + sortValue;
         finalurl = finalurl + sort;
       }
-      if (context.selectedTrack) {
-        let track = '&track=' + context.selectedTrack;
+      if (selectedTrack) {
+        let track = '&track=' + selectedTrack;
         finalurl = finalurl + track;
         console.log(finalurl);
       }
+      
       console.log('fghj');
       setError(null);
       try {
@@ -41,8 +47,8 @@ export const useFetch = () => {
           throw new Error(res.statusText);
         }
         const data = await res.json();
-        context.setAvailableTracks(data.testimonials.tracks);
-        context.setTrackCounts(data.testimonials.track_counts);
+        setAvailableTracks(data.testimonials.tracks);
+        setTrackCounts(data.testimonials.track_counts);
         setData(data.testimonials);
         setError(null);
         setIsPending(false);
@@ -54,7 +60,7 @@ export const useFetch = () => {
       }
     };
     fetchdata();
-  }, [context.pageNo, context.searchTerm, context.sortValue, context.selectedTrack]);
+  }, [pageNo, searchTerm, selectedTrack, setAvailableTracks, setTrackCounts, sortValue]);
 
   return { data, isPending, error };
 };

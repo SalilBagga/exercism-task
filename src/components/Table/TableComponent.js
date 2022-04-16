@@ -20,13 +20,13 @@ function TableComponent({ testimonials }) {
             {testimonials &&
               testimonials.map((data, index) => (
                 <TableRow
-                  key={data.id}
                   logo={data.track.icon_url}
                   avatar={data.mentor.avatar_url}
                   name={data.mentor.handle}
                   topic={data.exercise.title}
                   content={data.content}
                   createdAt={data.created_at}
+                  key={data.id}
                 />
               ))}
           </tbody>

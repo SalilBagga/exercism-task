@@ -11,13 +11,13 @@ import EmptyData from '../EmptyData';
 import { useFetch } from '../../hooks/useFetch';
 import { FilterContext } from '../../context/FilterContext';
 export default function Table() {
-  const context = useContext(FilterContext);
+  const  {setLastPageNo} = useContext(FilterContext);
   const { data, isPending, error } = useFetch();
   useEffect(() => {
     if (data) {
-      context.setLastPageNo(data.pagination.total_pages);
+       setLastPageNo(data.pagination.total_pages);
     }
-  }, [data, context]);
+  }, [data, setLastPageNo]);
 
   return (
     <div className="max-w-[95%] mb-5 max-h-[90%] border-2 mx-auto mt-6 rounded-lg  shadow-xl">

@@ -9,8 +9,8 @@ import Tracks from './Tracks';
 //context
 import { FilterContext } from '../../context/FilterContext';
 
-function DropDown({ setDropDown, tacks }) {
-  const context = useContext(FilterContext);
+function DropDown({ setDropDown, tracksList }) {
+  const { selectedTrack,setSelectedTrack,availableTracks,trackCounts} = useContext(FilterContext);
 
   return (
     <div className="absolute">
@@ -22,9 +22,9 @@ function DropDown({ setDropDown, tacks }) {
               name="tracks"
               id="alltracks"
               className="tracks ml-[1.5rem] absolute  z-10"
-              checked={context.selectedTrack === null}
+              checked={selectedTrack === null}
               onChange={() => {
-                context.setSelecTrack(null);
+                setSelectedTrack(null);
                 setDropDown(false);
               }}
             />
@@ -36,17 +36,17 @@ function DropDown({ setDropDown, tacks }) {
             </div>
           </label>
 
-          {tacks &&
-            context.availableTracks.length > 0 &&
-            tacks.tracks.map(
+          {tracksList &&
+            availableTracks.length > 0 &&
+            tracksList.tracks.map(
               (data, index) =>
-                context.availableTracks.includes(data.slug) && (
+                availableTracks.includes(data.slug) && (
                   <Tracks
                     key={index}
-                    setTrackList={context.setSelecTrack}
-                    trackList={context.selectedTrack}
+                    setTrackList={setSelectedTrack}
+                    trackList={selectedTrack}
                     id={index}
-                    trackCounts={context.trackCounts}
+                    trackCounts={trackCounts}
                     data={data}
                     setDropDown={setDropDown}
                   />

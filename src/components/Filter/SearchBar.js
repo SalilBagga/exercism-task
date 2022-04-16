@@ -4,7 +4,7 @@ import { ReactComponent as SearchIcon } from '../../assets/SearchIcon.svg';
 import { FilterContext } from '../../context/FilterContext';
 
 function SearchBar() {
-  const context = useContext(FilterContext);
+  const  {setSearchTerm} = useContext(FilterContext);
   const [search, setSearch] = useState('');
 
   const initialRender = useRef(false);
@@ -13,14 +13,14 @@ function SearchBar() {
     if (initialRender.current) {
       console.log('this is rendering second time');
       const delayDebounceFn = setTimeout(() => {
-        context.setSearchTerm(search.trim());
+         setSearchTerm(search.trim());
       }, 1000);
       return () => clearTimeout(delayDebounceFn);
     } else {
       initialRender.current = true;
       console.log('this rendering first time');
     }
-  }, [search, context]);
+  }, [search, setSearchTerm]);
 
   return (
     <div className="relative rounded-lg shadow-sm w-searchbar ml-10">

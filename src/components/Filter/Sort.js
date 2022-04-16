@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FilterContext } from '../../context/FilterContext';
 
 export default function Sort() {
-  const context = useContext(FilterContext);
+  const {setSortValue} = useContext(FilterContext);
   return (
     <div className="w-[348px]">
       <select
@@ -10,7 +10,7 @@ export default function Sort() {
         id="sortby"
         className="py-2 pl-3   w-full h-12 bg-ex-trackhover ring-1 ring-slate-900/10 text-searchtext rounded-md"
         onChange={(e) => {
-          context.setSortValue(e.target.value);
+           setSortValue(e.target.value);
         }}
       >
         <option value="" defaultChecked>

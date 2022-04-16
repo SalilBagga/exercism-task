@@ -1,9 +1,8 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
-import { FilterContext } from '../context/FilterContext';
-
+ 
 export const useFetchTracks = () => {
-  const context = useContext(FilterContext);
+  
 
   const [tracks, setTracks] = useState(null);
   const [isPending, setIsPending] = useState(true);
@@ -30,7 +29,7 @@ export const useFetchTracks = () => {
       }
     };
     fetchtracks();
-  }, [context]);
+  }, []);
 
   return { tracks, isPending, error };
 };
